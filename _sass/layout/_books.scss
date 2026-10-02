@@ -1,0 +1,125 @@
+/* Book list and reading-note pages */
+
+.book-list__empty {
+  color: var(--global-text-color-light);
+}
+
+.book-list__year {
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.45rem;
+  color: var(--global-base-color);
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.archive .book-card {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  color: var(--global-text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--global-base-color);
+    text-decoration: none;
+  }
+}
+
+.book-card__cover {
+  display: block;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--global-border-color);
+  background: var(--global-code-background);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.book-card__cover-placeholder {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--global-text-color-light);
+  font-size: 0.8rem;
+}
+
+.book-card__info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.book-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.book-card__author,
+.book-card__date,
+.book-card__summary {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.book-card__status,
+.book-detail__status {
+  color: var(--global-base-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.book-card__more {
+  margin-top: auto;
+  color: var(--global-base-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.book-detail__intro {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.book-detail__cover {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--global-border-color);
+}
+
+.book-detail__meta p {
+  margin: 0 0 0.65rem;
+}
+
+.book-detail__back {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .archive .book-card {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  .book-detail__intro {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 1rem;
+  }
+}

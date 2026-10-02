@@ -1,0 +1,29 @@
+<article class="friend-item">
+  <div class="friend-item__header">
+    <div class="friend-item__identity">
+      <strong class="friend-item__name">{{ include.friend.name }}</strong>
+
+      {% for link in include.friend.links %}
+        {% if link.url and link.url != "" %}
+          <a class="friend-item__link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label }} ↗]</a>
+        {% else %}
+          <span class="friend-item__link friend-item__link--pending" title="请在 _data/friends.yml 中补充网址">[{{ link.label }} ↗]</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if include.friend.affiliation %}
+      <div class="friend-item__affiliation">
+        {% if include.friend.affiliation_url %}
+          <a href="{{ include.friend.affiliation_url }}" target="_blank" rel="noopener noreferrer">{{ include.friend.affiliation }}</a>
+        {% else %}
+          {{ include.friend.affiliation }}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if include.friend.description %}
+    <p class="friend-item__description">{{ include.friend.description }}</p>
+  {% endif %}
+</article>

@@ -1,0 +1,27 @@
+---
+layout: single
+---
+
+{% if page.cover or page.book_author or page.finished_on or page.status %}
+  <div class="book-detail__intro">
+    {% if page.cover %}
+      {% assign cover_url = page.cover %}
+      {% unless page.cover contains "://" %}{% assign cover_url = page.cover | relative_url %}{% endunless %}
+      <img class="book-detail__cover" src="{{ cover_url }}" alt="《{{ page.title }}》封面">
+    {% endif %}
+    <div class="book-detail__meta">
+      {% if page.book_author %}<p>作者：{{ page.book_author }}</p>{% endif %}
+      {% if page.publisher %}<p>出版社：{{ page.publisher }}{% if page.published_year %}（{{ page.published_year }}）{% endif %}</p>{% endif %}
+      {% if page.isbn %}<p>ISBN：{{ page.isbn }}</p>{% endif %}
+      {% if page.finished_on %}<p>完成阅读：<time datetime="{{ page.finished_on | date: '%Y-%m-%d' }}">{{ page.finished_on | date: "%Y年%-m月%-d日" }}</time></p>{% endif %}
+      {% unless page.finished_on %}{% if page.status %}<p class="book-detail__status">阅读状态：{{ page.status }}</p>{% endif %}{% endunless %}
+      {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<div class="book-detail__notes">
+  {{ content }}
+</div>
+
+<p class="book-detail__back"><a href="{{ '/books/' | relative_url }}">← 返回书籍</a></p>

@@ -15,7 +15,8 @@ var breaks = [];
 
 function updateNav() {
 
-  var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
+  var themeToggleSpace = $vlinks_persist_tail.outerWidth(true);
+  var availableSpace = $nav.width() - themeToggleSpace - ($btn.hasClass('hidden') ? 0 : $btn.width() + 30);
 
   // The visible list is overflowing the nav
   if ($vlinks.width() > availableSpace) {
@@ -27,10 +28,9 @@ function updateNav() {
       // Move item to the hidden list
       $vlinks.children("*:not(.persist)").last().prependTo($hlinks);
 
-      availableSpace = $btn.hasClass("hidden") ? $nav.width() : $nav.width() - $btn.width() - 30;
-
       // Show the dropdown btn
       $btn.removeClass("hidden");
+      availableSpace = $nav.width() - themeToggleSpace - $btn.width() - 30;
     }
 
     // The visible list is not overflowing

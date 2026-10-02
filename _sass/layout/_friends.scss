@@ -1,0 +1,77 @@
+/* ==========================================================================
+   FRIENDS
+   ========================================================================== */
+
+.friend-list {
+  margin-top: 0.5rem;
+}
+
+.friend-item {
+  padding: 1rem 0 1.1rem;
+  border-bottom: 1px dashed var(--global-border-color);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.friend-item__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.friend-item__identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.45rem;
+  min-width: 0;
+}
+
+.friend-item__name {
+  color: var(--global-text-color);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.archive .friend-item__link,
+.archive .friend-item__affiliation a {
+  text-decoration: none;
+}
+
+.friend-item__link {
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.friend-item__link--pending {
+  color: var(--global-link-color);
+  cursor: default;
+  opacity: 0.8;
+}
+
+.friend-item__affiliation {
+  flex: 0 1 42%;
+  min-width: 8rem;
+  color: var(--global-text-color-light);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.friend-item__affiliation a {
+  color: inherit;
+}
+
+.friend-item__description {
+  margin: 0.35rem 0 0;
+  color: var(--global-text-color-light);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}

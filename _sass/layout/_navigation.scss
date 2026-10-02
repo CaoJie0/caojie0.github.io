@@ -192,7 +192,7 @@
   button {
     position: absolute;
     height: 2.5rem;
-    right: 0;
+    right: calc(25px + 1rem);
     padding: 0 0.5rem;
     border: 0;
     outline: none;
@@ -226,6 +226,10 @@
     }
 
     #theme-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+
       a {
         width: 25px;
         display: flex;
@@ -263,7 +267,7 @@
   .hidden-links {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: calc(25px + 1rem);
     margin-top: 15px;
     padding: 5px;
     border: 1px solid var(--global-border-color);

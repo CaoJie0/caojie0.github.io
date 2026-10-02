@@ -1,0 +1,56 @@
+---
+layout: archive
+title: "书籍"
+permalink: /books/
+author_profile: true
+redirect_from:
+  - /teaching/
+---
+
+{% assign sorted_books = site.books | sort: "reading_year" | reverse %}
+
+{% if sorted_books.size == 0 %}
+  <p class="book-list__empty">读书记录正在整理中。</p>
+{% else %}
+  <div class="book-list">
+    {% assign current_year = "" %}
+    {% for book in sorted_books %}
+      {% if book.reading_year %}
+        {% assign book_year = book.reading_year %}
+      {% elsif book.finished_on %}
+        {% assign book_year = book.finished_on | date: "%Y" %}
+      {% else %}
+        {% assign book_year = "日期待补充" %}
+      {% endif %}
+      {% if book_year != current_year %}
+        <h2 class="book-list__year" id="year-{{ book_year }}">{{ book_year }}{% unless book_year == "日期待补充" %} 年{% endunless %}</h2>
+        {% assign current_year = book_year %}
+      {% endif %}
+
+      <a class="book-card" href="{{ book.url | relative_url }}">
+        <span class="book-card__cover">
+          {% if book.cover %}
+            {% assign cover_url = book.cover %}
+            {% unless book.cover contains "://" %}{% assign cover_url = book.cover | relative_url %}{% endunless %}
+            <img src="{{ cover_url }}" alt="《{{ book.title }}》封面" loading="lazy">
+          {% else %}
+            <span class="book-card__cover-placeholder" aria-hidden="true">暂无封面</span>
+          {% endif %}
+        </span>
+        <span class="book-card__info">
+          <span class="book-card__title">{{ book.title }}</span>
+          {% if book.book_author %}<span class="book-card__author">作者：{{ book.book_author }}</span>{% endif %}
+          {% if book.finished_on %}
+            <span class="book-card__date">完成阅读：<time datetime="{{ book.finished_on | date: '%Y-%m-%d' }}">{{ book.finished_on | date: "%Y年%-m月%-d日" }}</time></span>
+          {% elsif book.status %}
+            <span class="book-card__status">阅读状态：{{ book.status }}</span>
+          {% else %}
+            <span class="book-card__date">完成阅读：日期待补充</span>
+          {% endif %}
+          {% if book.summary %}<span class="book-card__summary">{{ book.summary }}</span>{% endif %}
+          <span class="book-card__more">查看读书笔记 →</span>
+        </span>
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,50 @@
+# “师友”页面的数据；条目顺序就是页面显示顺序。
+# name：姓名；affiliation：右侧单位；description：下一行简介。
+# links 中的 label 和 url 控制姓名后方的链接。
+
+- name: "宋忠孝"
+  affiliation: "西安交通大学材料科学与工程学院"
+  description: "研究功能薄膜、表面防护涂层与金属材料。"
+  links:
+    - label: "主页"
+      url: "https://gr.xjtu.edu.cn/zhongxiaosong/zh_CN/index.htm"
+
+- name: "刘洋洋"
+  affiliation: "西安交通大学仪器科学与技术学院"
+  description: "研究储能材料与器件、金属负极及固态电池界面。"
+  links:
+    - label: "主页"
+      url: "https://gr.xjtu.edu.cn/liuyy0510/"
+    - label: "Scholar"
+      url: "https://scholar.google.com/citations?hl=en&user=N3-Ewr4AAAAJ"
+
+- name: "于江"
+  affiliation: "国防科技大学计算机科学与技术学院"
+  description: "研究大语言模型的逻辑推理与神经符号方法。"
+  links:
+    - label: "博客"
+      url: "https://rozen12123.github.io/"
+    - label: "Scholar"
+      url: "https://scholar.google.com/citations?user=OhbV4CEAAAAJ"
+    - label: "ORCID"
+      url: "https://orcid.org/0009-0005-2880-9009"
+
+- name: "刘非凡"
+  affiliation: "浙江大学 ZJU-UIUC 联合学院"
+  description: "关注 AI Agent、电力系统与软硬件协同。"
+  links:
+    - label: "博客"
+      url: "https://nontrivialliu.github.io/zh-cn/"
+
+- name: "邱金羽"
+  affiliation: "电子科技大学 信息与通信工程学院"
+  description: "分享电子制作、课程笔记与学习资料。"
+  links:
+    - label: "博客"
+      url: "https://y006.github.io/"
+
+- name: "uulin"
+  description: "记录 Orange Pi、Linux 与个人设备的折腾实践。"
+  links:
+    - label: "博客"
+      url: "https://uulin.cn/"
