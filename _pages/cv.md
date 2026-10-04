@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "个人简历"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -9,11 +9,29 @@ redirect_from:
 
 {% include base_path %}
 
-Education
+教育背景
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+
+<div class="cv-education">
+  <article class="cv-education__item">
+    <div class="cv-education__details">
+      <strong class="cv-education__school">西安交通大学</strong>
+      <span class="cv-education__school-en">Xi'an Jiaotong University</span>
+      <span class="cv-education__degree">硕士 · 储能科学与工程</span>
+      <span class="cv-education__college">未来技术学院</span>
+    </div>
+    <div class="cv-education__date">2026.09 – 至今</div>
+  </article>
+  <article class="cv-education__item">
+    <div class="cv-education__details">
+      <strong class="cv-education__school">河南大学</strong>
+      <span class="cv-education__school-en">Henan University</span>
+      <span class="cv-education__degree">本科 · 电子信息科学与技术</span>
+      <span class="cv-education__college">迈阿密学院</span>
+    </div>
+    <div class="cv-education__date">2022.09 – 2026.06</div>
+  </article>
+</div>
 
 Work experience
 ======

@@ -139,7 +139,6 @@ function redrawPlotly() {
 $(document).ready(function () {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
-  const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
   // If the user hasn't chosen a theme, follow the OS preference
   setTheme();
@@ -152,6 +151,16 @@ $(document).ready(function () {
 
   // Enable the theme toggle
   $('#theme-toggle').on('click', toggleTheme);
+
+  // The navigation can wrap on narrow screens; keep page content below it.
+  const masthead = document.querySelector('.masthead');
+  if (masthead) {
+    const updateMastheadSpacing = () => {
+      document.body.style.paddingTop = `${masthead.offsetHeight}px`;
+    };
+    new ResizeObserver(updateMastheadSpacing).observe(masthead);
+    updateMastheadSpacing();
+  }
 
   // Enable the sticky footer
   var bumpIt = function () {

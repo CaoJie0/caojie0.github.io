@@ -11,7 +11,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body{% if page.url == '/' or page.collection == 'posts' or page.url == '/cv/' or page.url == '/cv-json/' %} class="content-body"{% endif %}>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

@@ -34,6 +34,166 @@
   }
 }
 
+/* The homepage keeps the avatar and contact links together beside the introduction. */
+#main.home-layout {
+  max-width: 900px;
+  margin-top: 0;
+  padding-top: 3rem;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    float: none;
+    width: auto;
+    height: auto;
+    max-width: none;
+    overflow: visible;
+    /* The navigation script writes inline padding for the standard sidebar. */
+    padding: 0 !important;
+    margin-bottom: 2.5rem;
+    transform: none;
+  }
+
+  .sidebar .author__avatar {
+    display: block;
+    width: 175px;
+    max-width: 100%;
+  }
+
+  .sidebar .author__urls-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 1.5rem;
+    cursor: default;
+
+    button {
+      display: none;
+    }
+  }
+
+  .sidebar .author__urls {
+    display: block;
+    position: static;
+    z-index: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+
+    li {
+      white-space: normal;
+    }
+  }
+
+  .sidebar .author__desktop {
+    display: block;
+  }
+
+  .page.home-page {
+    float: none;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    .page__title {
+      margin-bottom: 1.3rem;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .page__content {
+      line-height: 1.8;
+
+      > h2 {
+        margin-top: 2.8rem;
+      }
+    }
+  }
+
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 2.5rem;
+    align-items: start;
+    padding-top: 5rem;
+
+    .page.home-page {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .sidebar {
+      grid-column: 1;
+      grid-row: 1;
+      align-items: flex-start;
+      margin: 0;
+    }
+
+    .sidebar .author__avatar {
+      width: 175px;
+    }
+  }
+}
+
+/* Narrow reading column for posts; retain the existing article/share components. */
+#main.blog-layout {
+  .page.blog-post,
+  .page__related {
+    float: none;
+    width: 100%;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 1249px) {
+  #main.blog-layout .sidebar {
+    position: static;
+    float: none;
+    width: auto;
+    height: auto;
+    max-width: none;
+    overflow: visible;
+    padding-top: 0 !important;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Push the footer to the viewport bottom on short content pages, while keeping
+   it after the content when a page is taller than the viewport. */
+body.content-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 0;
+
+  #main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+  .page__footer {
+    position: relative;
+    float: none;
+    bottom: auto;
+    margin-top: 4rem;
+  }
+}
+
 .page__title {
   margin-top: 0;
   line-height: 1;
@@ -49,6 +209,11 @@
 }
 
 .page__content {
+
+  .home-page & > p:first-child {
+    margin-top: 0;
+    text-indent: 0;
+  }
 
   .home-intro__section-title {
     color: var(--global-base-color);

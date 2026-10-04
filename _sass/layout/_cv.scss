@@ -1,0 +1,51 @@
+/* Education entries on the Markdown CV page. */
+.cv-education {
+  margin: 1.5rem 0 2rem;
+}
+
+.cv-education__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--global-border-color);
+
+  & + & {
+    margin-top: 1.5rem;
+  }
+}
+
+.cv-education__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.cv-education__school {
+  font-weight: 700;
+}
+
+.cv-education__school-en,
+.cv-education__college {
+  color: var(--global-text-color-light);
+  font-size: 0.9em;
+}
+
+.cv-education__date {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .cv-education__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+  }
+
+  .cv-education__date {
+    text-align: left;
+    white-space: normal;
+  }
+}

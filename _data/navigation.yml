@@ -15,15 +15,15 @@ main:
     url: /portfolio/
         
   - title: "博客"
-    url: /year-archive/
+    url: /blogs/
 
   - title: "师友"
-    url: /talks/
+    url: /friends/
 
   - title: "书籍"
     url: /books/
     
-  - title: "个人简历"
+  - title: "简历"
     url: /cv/
     
   # - title: "CV"

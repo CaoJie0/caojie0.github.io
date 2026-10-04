@@ -172,8 +172,10 @@
    Priority plus navigation
    ========================================================================== */
 
-.greedy-nav {
+.site-nav {
   position: relative;
+  display: flex;
+  align-items: center;
   min-width: 250px;
   background: var(--global-bg-color);
 
@@ -189,25 +191,15 @@
     }
   }
 
-  button {
-    position: absolute;
-    height: 2.5rem;
-    right: calc(25px + 1rem);
-    padding: 0 0.5rem;
-    border: 0;
-    outline: none;
-    background-color: var(--global-bg-color);
-    color: var(--global-text-color);
-    cursor: pointer;
-    z-index: 100;
-  }
-
   .visible-links {
-    display: table;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 
     li {
-      display: table-cell;
-      vertical-align: middle;
+      display: block;
+      flex: 0 0 auto;
 
       &:first-child {
         font-weight: bold;
@@ -226,14 +218,13 @@
     }
 
     #theme-toggle {
-      position: absolute;
-      top: 0;
-      right: 0;
+      padding-left: 0.5rem;
 
       a {
         width: 25px;
         display: flex;
         justify-content: center;
+        margin: 0;
         cursor: pointer;
       }
     }
@@ -264,60 +255,77 @@
     }
   }
 
-  .hidden-links {
-    position: absolute;
-    top: 100%;
-    right: calc(25px + 1rem);
-    margin-top: 15px;
-    padding: 5px;
-    border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: var(--global-bg-color);
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+}
 
-    a {
-      margin: 0;
-      padding: 10px 20px;
-      font-size: $type-size-5;
+/* The two-line personal brand replaces the generic “主页” link. */
+.site-nav .visible-links .masthead__menu-item--brand {
+  margin-right: auto;
+  padding-right: 1.5em;
+  font-weight: 400;
 
-      &:hover {
-        color: var(--global-masthead-link-color-hover);
-        background: var(--global-border-color);
-      }
-    }
+  a {
+    margin-left: 0;
+    padding: 0.15rem 0;
+    border-bottom: 0;
+    font-weight: 400;
+    line-height: 1.15;
+    white-space: nowrap;
+    pointer-events: auto;
+    cursor: pointer;
 
     &:before {
-      content: "";
-      position: absolute;
-      top: -11px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: var(--global-border-color) transparent;
-      display: block;
-      z-index: 0;
+      display: none;
     }
+  }
 
+  .masthead__brand-name,
+  .masthead__brand-subtitle {
+    display: block;
+  }
+
+  .masthead__brand-name {
+    font-family: $sans-serif;
+    font-size: 1.45em;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+
+  .masthead__brand-subtitle {
+    margin-top: 0.1em;
+    color: var(--global-text-color-light);
+    font-family: $sans-serif;
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 650px) {
+  .site-nav .visible-links {
+    justify-content: center;
+
+    /* Keep the name and theme toggle on the first row, with all links below. */
     &:after {
       content: "";
-      position: absolute;
-      top: -10px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: var(--global-bg-color) transparent;
-      display: block;
-      z-index: 1;
+      flex-basis: 100%;
+      height: 0;
+      order: 1;
     }
 
-    li {
-      display: block;
-      border-bottom: 1px solid var(--global-border-color);
+    .masthead__menu-item--brand {
+      order: 0;
+    }
 
-      &:last-child {
-        border-bottom: none;
+    #theme-toggle {
+      order: 1;
+    }
+
+    .masthead__menu-item:not(.masthead__menu-item--brand):not(#theme-toggle) {
+      order: 2;
+
+      a {
+        margin: 0 0.45rem;
+        padding: 0.35rem 0;
+        transition: none;
       }
     }
   }

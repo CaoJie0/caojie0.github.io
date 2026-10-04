@@ -1,0 +1,120 @@
+/* Blog-specific colors, topic filters, and article sharing. */
+:root {
+  --blog-accent: #8b4d3e;
+  --blog-accent-hover: #683629;
+  --blog-accent-soft: #f7eee8;
+  --blog-accent-border: #dcc2b4;
+}
+
+html[data-theme="dark"] {
+  --blog-accent: #e4ad90;
+  --blog-accent-hover: #f2c4a9;
+  --blog-accent-soft: #392c29;
+  --blog-accent-border: #765448;
+}
+
+.blog-index {
+  [hidden] { display: none !important; }
+
+  .blog-year > .archive__subtitle {
+    margin-top: 1.6em;
+  }
+}
+
+.blog-index .archive__item-title a,
+.blog-post + .page__related .archive__item-title a {
+  color: var(--blog-accent);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--blog-accent-hover);
+    text-decoration: underline;
+  }
+}
+
+.blog-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55em;
+  margin: 1.4em 0 0;
+}
+
+.blog-filter__label {
+  margin-right: 0.3em;
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+}
+
+.blog-filter__button,
+.article-share__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  padding: 0.42em 0.9em;
+  border: 1px solid var(--blog-accent-border);
+  border-radius: 999px;
+  background: var(--global-bg-color);
+  color: var(--blog-accent);
+  font: inherit;
+  font-size: $type-size-6;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--blog-accent-soft);
+    color: var(--blog-accent-hover);
+  }
+}
+
+.blog-filter__button.is-active {
+  background: var(--blog-accent);
+  border-color: var(--blog-accent);
+  color: var(--global-bg-color);
+}
+
+.blog-filter__empty {
+  margin-top: 1.5em;
+  color: var(--global-text-color-light);
+}
+
+.blog-list__category,
+.blog-post__category {
+  margin: 0.2em 0 0.65em;
+  font-size: $type-size-6;
+
+  span {
+    display: inline-block;
+    padding: 0.15em 0.65em;
+    border-radius: 999px;
+    background: var(--blog-accent-soft);
+    color: var(--blog-accent);
+    font-weight: 600;
+  }
+}
+
+.blog-post__category {
+  margin-bottom: 1em;
+}
+
+.article-share__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55em;
+}
+
+.article-share .article-share__button {
+  text-decoration: none;
+}
+
+.article-share__status {
+  margin: 0.55em 0 0;
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+
+  &:empty { display: none; }
+}

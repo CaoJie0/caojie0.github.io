@@ -3,9 +3,6 @@ title: "把自己作为方法"
 book_author: "项飙、吴琦"
 reading_year: 2026
 status: "阅读中"
-publisher: "上海文艺出版社"
-published_year: 2020
-isbn: "9787532176953"
 cover: "/images/books/the-self-as-method-2020.jpg"
 summary: "项飙与吴琦的对话，围绕个人经验、社会变迁与人类学研究方法展开。"
 ---
