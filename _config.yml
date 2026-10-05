@@ -223,6 +223,8 @@ collections:
   books:
     output: true
     permalink: /:collection/:path/
+  seminars:
+    output: false
   publications:
     output: true
     permalink: /:collection/:path/

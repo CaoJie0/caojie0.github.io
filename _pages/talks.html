@@ -1,0 +1,31 @@
+---
+layout: archive
+title: "研讨记录"
+permalink: /talks/
+author_profile: true
+---
+
+<p>与师友交流的研讨记录。具体内容需输入密码查看。</p>
+
+{% assign seminars = site.seminars | sort: "date" | reverse %}
+{% if seminars.size > 0 %}
+  {% for seminar in seminars %}
+    <div class="list__item">
+      <article class="archive__item">
+        <h2 class="archive__item-title">
+          {% if seminar.detail_url %}<a href="{{ seminar.detail_url | escape }}">{{ seminar.title | escape }}</a>{% else %}{{ seminar.title | escape }}{% endif %}
+        </h2>
+        {% if seminar.date or seminar.participants %}
+          <p class="page__meta">
+            {% if seminar.date %}<time datetime="{{ seminar.date | date: '%Y-%m-%d' }}">{{ seminar.date | date: '%Y年%-m月%-d日' }}</time>{% endif %}
+            {% if seminar.participants %} · 参与者：{{ seminar.participants | escape }}{% endif %}
+          </p>
+        {% endif %}
+        {% if seminar.summary %}<p class="archive__item-excerpt">{{ seminar.summary | escape }}</p>{% endif %}
+        {% if seminar.detail_url %}<p class="page__meta">点击后需输入账号和密码</p>{% endif %}
+      </article>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>研讨记录正在整理中。</p>
+{% endif %}

@@ -17,6 +17,9 @@ main:
   - title: "博客"
     url: /blogs/
 
+  - title: "研讨"
+    url: /talks/
+
   - title: "师友"
     url: /friends/
 
