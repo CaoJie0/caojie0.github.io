@@ -224,7 +224,8 @@ collections:
     output: true
     permalink: /:collection/:path/
   seminars:
-    output: false
+    output: true
+    permalink: /talks/:path/
   publications:
     output: true
     permalink: /:collection/:path/
@@ -245,7 +246,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: true
       share: true
       related: true
@@ -256,6 +257,15 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _seminars
+  - scope:
+      path: ""
+      type: seminars
+    values:
+      layout: seminar
+      author_profile: true
+      share: false
+      comments: false
   # _books
   - scope:
       path: ""

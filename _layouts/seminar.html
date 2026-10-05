@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<div id="main" class="blog-layout" role="main">
+  {% include sidebar.html %}
+
+  <article class="page blog-post seminar-post" itemscope itemtype="http://schema.org/CreativeWork">
+    <div class="page__inner-wrap">
+      <header>
+        <h1 class="page__title" itemprop="headline">{{ page.title | escape }}</h1>
+        {% if page.date or page.participants %}
+          <dl class="seminar-post__details">
+            {% if page.date %}
+              <dt>Date：</dt>
+              <dd><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y年%-m月%-d日' }}</time></dd>
+            {% endif %}
+            {% if page.participants %}
+              <dt>讨论者：</dt>
+              <dd>{{ page.participants | escape }}</dd>
+            {% endif %}
+          </dl>
+        {% endif %}
+      </header>
+
+      <section class="page__content" itemprop="text">
+        {% if page.summary %}
+          <h2>内容概括</h2>
+          <p>{{ page.summary | escape }}</p>
+        {% endif %}
+
+        <h2>转写文档</h2>
+        {% assign transcript_content = content | strip_html | strip_newlines | strip %}
+        {% if page.transcript_file %}
+          <p><a href="{{ page.transcript_file | relative_url }}">查看整理后的文档</a></p>
+        {% endif %}
+        {% if transcript_content != "" %}
+          {{ content }}
+        {% elsif page.transcript_file == nil %}
+          <p class="seminar-post__pending">整理后的文档待上传。</p>
+        {% endif %}
+
+        {% if page.video_gate_url %}
+          <h2>原始视频</h2>
+          <p><a class="seminar-post__video-link" href="{{ page.video_gate_url | escape }}">打开原始视频</a></p>
+        {% endif %}
+      </section>
+
+      {% include blog-support.html hide_credit=true %}
+
+      <nav class="pagination blog-post-pagination" aria-label="研讨导航">
+        <a href="{{ '/talks/' | relative_url }}" class="pagination--pager blog-post-pagination__back">返回研讨列表</a>
+      </nav>
+    </div>
+  </article>
+</div>

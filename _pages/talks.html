@@ -1,31 +1,47 @@
 ---
 layout: archive
-title: "研讨记录"
+title: "闲时小叙"
 permalink: /talks/
 author_profile: true
 ---
 
-<p>与师友交流的研讨记录。具体内容需输入密码查看。</p>
+<p>同好友交流现况与知识分享</p>
 
 {% assign seminars = site.seminars | sort: "date" | reverse %}
 {% if seminars.size > 0 %}
+<div class="blog-index seminar-index">
+  {% assign written_year = "" %}
   {% for seminar in seminars %}
-    <div class="list__item">
+    {% assign year = seminar.date | date: "%Y" %}
+    {% if year != written_year %}
+      {% unless forloop.first %}</div>{% endunless %}
+      <div class="blog-year">
+        <h2 class="archive__subtitle">{{ year }}</h2>
+      {% assign written_year = year %}
+    {% endif %}
+    <div class="list__item blog-list__item">
       <article class="archive__item">
         <h2 class="archive__item-title">
-          {% if seminar.detail_url %}<a href="{{ seminar.detail_url | escape }}">{{ seminar.title | escape }}</a>{% else %}{{ seminar.title | escape }}{% endif %}
+          <a href="{{ seminar.url | relative_url }}">{{ seminar.title | escape }}</a>
         </h2>
         {% if seminar.date or seminar.participants %}
-          <p class="page__meta">
-            {% if seminar.date %}<time datetime="{{ seminar.date | date: '%Y-%m-%d' }}">{{ seminar.date | date: '%Y年%-m月%-d日' }}</time>{% endif %}
-            {% if seminar.participants %} · 参与者：{{ seminar.participants | escape }}{% endif %}
-          </p>
+          <dl class="seminar-index__details">
+            {% if seminar.date %}
+              <dt>Date：</dt>
+              <dd><time datetime="{{ seminar.date | date: '%Y-%m-%d' }}">{{ seminar.date | date: '%Y年%-m月%-d日' }}</time></dd>
+            {% endif %}
+            {% if seminar.participants %}
+              <dt>讨论者：</dt>
+              <dd>{{ seminar.participants | escape }}</dd>
+            {% endif %}
+          </dl>
         {% endif %}
         {% if seminar.summary %}<p class="archive__item-excerpt">{{ seminar.summary | escape }}</p>{% endif %}
-        {% if seminar.detail_url %}<p class="page__meta">点击后需输入账号和密码</p>{% endif %}
       </article>
     </div>
   {% endfor %}
+  </div>
+</div>
 {% else %}
   <p>研讨记录正在整理中。</p>
 {% endif %}

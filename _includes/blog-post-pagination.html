@@ -1,0 +1,18 @@
+<nav class="pagination blog-post-pagination" aria-label="文章导航">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="pagination--pager blog-post-pagination__previous">
+      <span class="blog-post-pagination__label">上一篇文章</span>
+      <span class="blog-post-pagination__title">{{ page.previous.title | markdownify | strip_html | strip_newlines | escape }}</span>
+    </a>
+  {% else %}
+    <a href="{{ '/blogs/' | relative_url }}" class="pagination--pager blog-post-pagination__previous blog-post-pagination__back">返回博客列表</a>
+  {% endif %}
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="pagination--pager blog-post-pagination__next">
+      <span class="blog-post-pagination__label">下一篇文章</span>
+      <span class="blog-post-pagination__title">{{ page.next.title | markdownify | strip_html | strip_newlines | escape }}</span>
+    </a>
+  {% elsif page.previous %}
+    <a href="{{ '/blogs/' | relative_url }}" class="pagination--pager blog-post-pagination__next blog-post-pagination__back">返回博客列表</a>
+  {% endif %}
+</nav>
