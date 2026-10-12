@@ -100,7 +100,9 @@ future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "waline" # "waline", "disqus", "discourse", "facebook", "staticman", "custom"
+  waline:
+    server_url           : "https://caojie0-comments.vercel.app"
   disqus:
     shortname            :
   discourse:
@@ -193,6 +195,8 @@ exclude:
   - README
   - tmp
   - vendor
+  - waline-service
+  - 评论服务部署说明.md
 keep_files:
   - .git
   - .svn
@@ -267,7 +271,7 @@ defaults:
       layout: seminar
       author_profile: true
       share: false
-      comments: false
+      comments: true
   # _books
   - scope:
       path: ""
@@ -276,7 +280,7 @@ defaults:
       layout: book
       author_profile: true
       share: false
-      comments: false
+      comments: true
   # _publications
   - scope:
       path: ""
@@ -294,7 +298,7 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comment: true
+      comments: true
   # _talks
   - scope:
       path: ""
@@ -303,6 +307,7 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+      comments: true
 
 
 # Sass/SCSS

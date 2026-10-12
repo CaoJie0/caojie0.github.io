@@ -1,0 +1,19 @@
+<section aria-labelledby="comments-title" class="waline-comments">
+  <h2 id="comments-title" class="page__comments-title">留言与讨论</h2>
+  <p class="waline-comments__intro">欢迎留下想法。昵称和邮箱为必填，网址可选；邮箱不会公开。留言经审核后显示。</p>
+
+  {% if site.comments.waline.server_url %}
+    <div class="waline-comments__panel"
+         data-waline-comments
+         data-server-url="{{ site.comments.waline.server_url | escape }}"
+         data-page-path="{{ page.url | escape }}">
+      <p class="waline-comments__status" data-waline-status role="status">正在加载留言区…</p>
+      <div data-waline-mount></div>
+    </div>
+    <script type="module" src="{{ '/assets/js/waline-comments.js' | relative_url }}"></script>
+  {% else %}
+    <p class="waline-comments__status" role="status">留言区正在准备中，请稍后再来。</p>
+  {% endif %}
+
+  <p class="waline-comments__privacy">留言信息的使用方式见<a href="{{ '/terms/' | relative_url }}">隐私说明</a>。</p>
+</section>

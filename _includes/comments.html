@@ -1,8 +1,10 @@
 {% include base_path %}
 
-<div class="page__comments">
+<div class="page__comments{% if site.comments.provider == 'waline' %} page__comments--waline{% endif %}">
   {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
   {% case site.comments.provider %}
+  {% when "waline" %}
+    {% include /comments-providers/waline.html %}
   {% when "disqus" %}
     <h4 class="page__comments-title">{{ comments_label }}</h4>
     <section id="disqus_thread"></section>

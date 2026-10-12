@@ -52,5 +52,9 @@ layout: default
         <a href="{{ '/talks/' | relative_url }}" class="pagination--pager blog-post-pagination__back">返回研讨列表</a>
       </nav>
     </div>
+
+    {% if site.comments.provider and page.comments %}
+      {% include comments.html %}
+    {% endif %}
   </article>
 </div>

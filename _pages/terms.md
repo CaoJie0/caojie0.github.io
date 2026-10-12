@@ -1,39 +1,18 @@
 ---
 permalink: /terms/
-title: "Terms and Privacy Policy"
-modified: 2016-06-06
+title: "留言与隐私说明"
 ---
 
-{% include base_path %}
-{% include toc %}
+本网站的内容详情页使用 Waline 提供留言功能。访客无需注册账号即可留言。
 
-## Privacy Policy
+## 留言时填写的信息
 
-The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.
+留言时需要填写昵称、邮箱地址和留言内容，个人网站地址可选。审核通过后，页面会公开展示昵称、留言内容、时间、头像及访客自愿填写的网站链接；**邮箱地址不会公开显示**。站长可在评论管理后台查看邮箱，用于识别留言和必要的联系。当前没有配置邮件通知，填写邮箱不会产生自动通知。
 
-First and foremost, I will never share your email address or any other personal information to anyone without your direct consent.
+评论服务会处理提交所需的网络及设备信息，例如 IP 地址和浏览器信息，用于防止垃圾留言和维护服务。留言数据存放于 Waline 使用的 Neon 数据库，评论接口运行于 Vercel。站长可以在管理后台审核或删除留言。
 
-### Log Files
+## 头像与浏览器信息
 
-Like many other websites, this site uses log files to help learn about when, from where, and how often traffic flows to this site. The information in these log files include:
+Waline 根据邮箱地址的散列值向头像服务请求头像；未找到匹配头像时显示默认头像。头像服务会收到散列值及常规网络请求信息，不会收到表单中的邮箱明文。评论组件可能在浏览器中保存已填写的信息，方便下次留言；可以通过清理网站数据移除本地保存的信息。
 
-* Internet Protocol addresses (IP)
-* Types of browser
-* Internet Service Provider (ISP)
-* Date and time stamp
-* Referring and exit pages
-* Number of clicks
-
-All of this information is not linked to anything that is personally identifiable.
-
-### Cookies and Web Beacons
-
-When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to [Disqus](https://disqus.com) the next time you leave a comment.
-
-Third-party advertisers may also place and read cookies on your browser and/or use web beacons to collect information. This site has no access or control over these cookies. You should review the respective privacy policies on any and all third-party ad servers for more information regarding their practices and how to opt-out.
-
-If you wish to disable cookies, you may do so through your web browser options. Instructions for doing so can be found on the specific web browsers' websites.
-
-#### Google Analytics
-
-Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors. You can read [Google Analytics Privacy Policy](https://www.google.com/analytics/learn/privacy.html).
+如需删除自己的留言或询问留言信息的处理方式，请通过网站首页的联系邮箱与我联系。
