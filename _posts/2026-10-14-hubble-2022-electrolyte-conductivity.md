@@ -1,6 +1,8 @@
 ---
 title: "低温锂电解液的电导率：Hubble 2022 精读笔记 01"
 layout: textbook
+textbook_style: openstax
+textbook_series: "低温锂电解液 · Hubble 2022 文献精读"
 permalink: /posts/hubble-2022-electrolyte-conductivity/
 date: 2026-10-14
 blog_category: "锂电"
@@ -15,26 +17,37 @@ tags:
 excerpt: "从锂盐解离、EC/EMC 配方、黏度和离子相关运动出发，理解电导率的温度依赖，以及高电导率为何不一定带来更好的低温电池性能。"
 ---
 
+
+<div class="textbook-objectives" markdown="1">
+
+## 1 学习目标
+{: #learning-objectives}
+
+完成本节后，你应能够：
+
+- 区分电解液中的离子电流与外电路中的电子电流，并解释 LiPF₆/EC/EMC 电解液为什么能够导电。
+- 运用电导率与欧姆电阻的关系进行计算，解释 EC 的介电性质和黏度为何会产生竞争影响。
+- 利用 Stokes–Einstein 与 Nernst–Einstein 关系理解降温对传输的影响，并说明这些近似的适用条件。
+- 解释为什么较高电导率不能单独保证更好的低温放电容量。
+
+</div>
+
 电导率衡量电解液传输电荷的能力。本文围绕 Hubble 等人的低温锂离子电池电解液综述，解释锂盐解离、EC/EMC 配方和黏度怎样影响电导率，并讨论这一体相性质为什么不能单独预测完整电池的低温性能。
 {: .textbook-lead}
 
 **阅读基础**　离子与电子、氧化还原反应、欧姆定律，以及扩散的基本概念。
 {: .textbook-prerequisite}
 
-> **精读来源**　Hubble, D. et al. *Liquid electrolyte development for low-temperature lithium-ion batteries*. **Energy & Environmental Science**, 2022, 15, 550–578。DOI：[10.1039/D1EE01789F](https://doi.org/10.1039/D1EE01789F)。
->
-> **原文位置**　第 552 页，*Challenges in low-temperature LIB performance → Bulk electrolyte considerations → Conductivity*；延伸图为第 553 页 Fig. 2。
->
-> 图 1–5 和标注为教学假设的数值用于帮助理解，不属于论文的原始实验数据。图 6 保留原综述与其引用研究的来源说明。
+<details class="textbook-source" markdown="1">
+<summary>精读来源与图像说明</summary>
 
-## 1 阅读这一节需要解决什么问题？
+**精读来源**　Hubble, D. et al. *Liquid electrolyte development for low-temperature lithium-ion batteries*. **Energy & Environmental Science**, 2022, 15, 550–578。DOI：[10.1039/D1EE01789F](https://doi.org/10.1039/D1EE01789F)。
 
-Hubble 的 Conductivity 小节虽然很短，实际上串联了四个问题：
+**原文位置**　第 552 页，*Challenges in low-temperature LIB performance → Bulk electrolyte considerations → Conductivity*；延伸图为第 553 页 Fig. 2。
 
-1. 为什么 LiPF₆ 加入 EC/EMC 混合溶剂后，电解液能够传导电流？
-2. 为什么 EC 的高介电常数有利于锂盐解离，但提高 EC 含量不一定持续增加电导率？
-3. 为什么温度降低会导致电解液电导率下降？Stokes–Einstein 和 Nernst–Einstein 关系分别解释什么？
-4. 为什么高电导率不一定对应更好的低温放电容量？
+图 1–5 和标注为教学假设的数值用于帮助理解，不属于论文的原始实验数据。图 6 保留原综述与其引用研究的来源说明。
+
+</details>
 
 作者在这一节的核心判断是：**低温下电解液电导率通常下降，但体相欧姆电阻往往并非总电池阻抗中最大的部分。因此，不能单凭电导率预测实际低温性能。** <a href="#ref-1">[1]</a>
 
@@ -56,7 +69,7 @@ $$
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig01-ion-electron-transport.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 1 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig01-ion-electron-transport.png' | relative_url }}" alt="图 1 放电时的离子与电子传输" loading="lazy" decoding="async" width="1721" height="846">
   </a>
-  <figcaption>图 1｜教学示意。放电时 Li⁺ 和 PF₆⁻ 在电场下具有相反的平均迁移方向，二者都能对电解液中的常规电流作出贡献。实际体系还存在随机热运动、浓度梯度、溶剂化及离子相关运动。</figcaption>
+  <figcaption><strong>图 1</strong>　教学示意。放电时 Li⁺ 和 PF₆⁻ 在电场下具有相反的平均迁移方向，二者都能对电解液中的常规电流作出贡献。实际体系还存在随机热运动、浓度梯度、溶剂化及离子相关运动。</figcaption>
 </figure>
 
 **为什么负离子朝相反方向移动，也能贡献电流？**
@@ -86,9 +99,6 @@ $$
 
 式 \\(\eqref{eq:bulk}\\) 中：
 
-**表 1**　电导率与欧姆电阻关系中的符号。
-{: .textbook-caption}
-
 <div class="textbook-table" markdown="1">
 
 | 符号 | 含义 | 常用单位 |
@@ -99,7 +109,19 @@ $$
 | \\(\kappa\\) | 电解液电导率 | \\(\mathrm{S\,m^{-1}}\\) 或 \\(\mathrm{S\,cm^{-1}}\\) |
 
 </div>
+
+**表 1**　电导率与欧姆电阻关系中的符号。
+{: .textbook-caption}
+
+<div id="example-ohmic" class="textbook-example" markdown="1">
+<p class="textbook-example__label">例题 1</p>
+<div class="textbook-example__body" markdown="1">
+
+#### 电导率变化如何影响欧姆电阻？
+
 假设某一均匀液层的厚度为 \\(100\ \mu\mathrm{m}=0.01\ \mathrm{cm}\\)，面积为 \\(1\ \mathrm{cm^2}\\)：
+
+#### 解答
 
 对于 A 电解液，\\(\kappa_A=10\ \mathrm{mS\,cm^{-1}}=0.010\ \mathrm{S\,cm^{-1}}\\)，有：
 
@@ -117,8 +139,11 @@ $$
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig02-conductivity-ohmic-resistance.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 2 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig02-conductivity-ohmic-resistance.png' | relative_url }}" alt="图 2 电导率与欧姆电阻" loading="lazy" decoding="async" width="1536" height="741">
   </a>
-  <figcaption>图 2｜教学计算：当长度和面积保持不变，电导率减半，计算得到的液体欧姆电阻增大一倍。此图不是实验数据。</figcaption>
+  <figcaption><strong>图 2</strong>　教学计算：当长度和面积保持不变，电导率减半，计算得到的液体欧姆电阻增大一倍。此图不是实验数据。</figcaption>
 </figure>
+
+</div>
+</div>
 
 由欧姆定律可得：
 
@@ -215,7 +240,7 @@ EC 增加可能同时引发两种相反的影响。
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig03-ec-competing-effects.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 3 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig03-ec-competing-effects.png' | relative_url }}" alt="图 3 EC 含量的两种相反影响" loading="lazy" decoding="async" width="1773" height="781">
   </a>
-  <figcaption>图 3｜作用路径的教学示意。增加 EC 后电导率的实际变化，需要测量，不能只从其中一种作用推断。</figcaption>
+  <figcaption><strong>图 3</strong>　作用路径的教学示意。增加 EC 后电导率的实际变化，需要测量，不能只从其中一种作用推断。</figcaption>
 </figure>
 
 ### 4.1 黏度是什么？为什么会变化？
@@ -234,9 +259,6 @@ Ding, M. S. et al. (2001), *Change of Conductivity with Salt Content, Solvent Co
 
 他们研究了 LiPF₆/EC/EMC 电解液，系统改变：
 
-**表 2**　Ding 等人研究涉及的配方与温度范围。
-{: .textbook-caption}
-
 <div class="textbook-table" markdown="1">
 
 | 变量 | 原始研究涉及的范围 |
@@ -246,6 +268,10 @@ Ding, M. S. et al. (2001), *Change of Conductivity with Salt Content, Solvent Co
 | 温度 | 约 \\(-40\\) 至 \\(60\ ^\circ\mathrm C\\) |
 
 </div>
+
+**表 2**　Ding 等人研究涉及的配方与温度范围。
+{: .textbook-caption}
+
 > **单位提醒**：论文中的 \\(\mathrm{mol\,kg^{-1}}\\) 为质量摩尔浓度，和 \\(\mathrm{M=mol\,L^{-1}}\\) 不能直接混用，需要溶液密度及其定义条件才能换算。
 
 实验给出两个重要现象。
@@ -260,7 +286,7 @@ Ding, M. S. et al. (2001), *Change of Conductivity with Salt Content, Solvent Co
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig04-salt-concentration-conductivity.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 4 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig04-salt-concentration-conductivity.png' | relative_url }}" alt="图 4 盐浓度与电导率关系的教学示意" loading="lazy" decoding="async" width="2021" height="1056">
   </a>
-  <figcaption>图 4｜仅展示“先升后降”可能出现的趋势，不是 Ding 等人的原始曲线，峰值所在横坐标没有实验意义。</figcaption>
+  <figcaption><strong>图 4</strong>　仅展示“先升后降”可能出现的趋势，不是 Ding 等人的原始曲线，峰值所在横坐标没有实验意义。</figcaption>
 </figure>
 
 #### 现象二：EC 含量也存在相互竞争的影响
@@ -295,15 +321,12 @@ Hubble 在原文中指出：对常见锂离子电池液态电解液，在相关�
 
 $$
 \begin{equation}
-\boxed{D=\frac{k_{\mathrm B}T}{6\pi\eta r_{\mathrm h}}}
+D=\frac{k_{\mathrm B}T}{6\pi\eta r_{\mathrm h}}
 \label{eq:stokes-einstein}
 \end{equation}
 $$
 
 其中：
-
-**表 3**　Stokes–Einstein 关系中的参数。
-{: .textbook-caption}
 
 <div class="textbook-table" markdown="1">
 
@@ -316,6 +339,10 @@ $$
 | \\(r_{\mathrm h}\\) | 流体动力学半径，即与流动阻力相关的有效尺寸 |
 
 </div>
+
+**表 3**　Stokes–Einstein 关系中的参数。
+{: .textbook-caption}
+
 由式 \\(\eqref{eq:stokes-einstein}\\) 可见，若暂时假定 \\(r_{\mathrm h}\\) 不变，则 \\(D\\) 随 \\(T\\) 增大而增大，随 \\(\eta\\) 增大而降低。
 
 降温常伴随黏度上升，因此溶剂化离子的扩散往往减慢。
@@ -328,7 +355,7 @@ $$
 
 $$
 \begin{equation}
-\boxed{\kappa_{\mathrm{NE}}=\frac{F^2}{RT}\sum_i z_i^2c_iD_i}
+\kappa_{\mathrm{NE}}=\frac{F^2}{RT}\sum_i z_i^2c_iD_i
 \label{eq:nernst-einstein}
 \end{equation}
 $$
@@ -373,7 +400,7 @@ $$
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig05-low-temperature-conductivity.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 5 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig05-low-temperature-conductivity.png' | relative_url }}" alt="图 5 降温使电导率下降的常见路径" loading="lazy" decoding="async" width="1642" height="768">
   </a>
-  <figcaption>图 5｜教学示意。黏度变化是 Hubble 强调的主要解释之一；离子缔合等因素是否显著变化取决于具体配方。</figcaption>
+  <figcaption><strong>图 5</strong>　教学示意。黏度变化是 Hubble 强调的主要解释之一；离子缔合等因素是否显著变化取决于具体配方。</figcaption>
 </figure>
 
 ### 5.5 为什么实际电导率会偏离 Nernst–Einstein 关系？
@@ -430,12 +457,18 @@ $$
   <a href="{{ '/images/posts/hubble-2022-conductivity/fig06-hubble-ion-transport.png' | relative_url }}" target="_blank" rel="noopener" aria-label="查看图 6 的原图">
     <img src="{{ '/images/posts/hubble-2022-conductivity/fig06-hubble-ion-transport.png' | relative_url }}" alt="图 6 Hubble 2022 Fig. 2：锂离子在全电池内部的传输步骤" loading="lazy" decoding="async" width="1551" height="408">
   </a>
-  <figcaption>图 6｜来源：Hubble 等（2022）综述第 553 页 Fig. 2；该综述注明转载自其文献 [15]，即 Li 等（2017，本文参考文献 <a href="#ref-6">[6]</a>）。阅读时关注不同温度下的限速步骤可能发生变化。</figcaption>
+  <figcaption><strong>图 6</strong>　来源：Hubble 等（2022）综述第 553 页 Fig. 2；该综述注明转载自其文献 [15]，即 Li 等（2017，本文参考文献 <a href="#ref-6">[6]</a>）。阅读时关注不同温度下的限速步骤可能发生变化。</figcaption>
 </figure>
 
 即使电解液体相具有很高的电导率，如果电极界面上的 Li⁺ 去溶剂化或电荷转移十分缓慢，低温放电容量仍可能明显下降。
 
 ### 7.2 用一个简化的电阻例子理解
+
+<div id="example-resistance" class="textbook-example" markdown="1">
+<p class="textbook-example__label">例题 2</p>
+<div class="textbook-example__body" markdown="1">
+
+#### 体相电阻较小，总阻抗就较小吗？
 
 为便于理解，假设某一条件下可以把总体阻力粗略拆为：
 
@@ -446,9 +479,6 @@ R_{\mathrm{total}}\approx R_{\mathrm{bulk}}+R_{\mathrm{interface}}+R_{\mathrm{ot
 \end{equation}
 $$
 
-**表 4**　用于比较体相与界面贡献的教学假设。
-{: .textbook-caption}
-
 <div class="textbook-table" markdown="1">
 
 | 假设的电阻贡献 | 电解液 A 对应电池 | 电解液 B 对应电池 |
@@ -458,9 +488,18 @@ $$
 | 简单加和 | \\(42\ \Omega\\) | \\(14\ \Omega\\) |
 
 </div>
+
+**表 4**　用于比较体相与界面贡献的教学假设。
+{: .textbook-caption}
+
+#### 解答
+
 **全部数值均为教学假设。** 电解液 A 的体相电阻较低，但对应电池的界面电阻更高，因此简单加和反而更大。
 
 真实的电池阻抗还具有频率依赖性和传质效应，不能把所有过程都在所有条件下化为几个固定电阻。这个例子只为了帮助理解 Hubble 的判断：单看 \\(\kappa\\) 不够。
+
+</div>
+</div>
 
 ### 7.3 有哪些原始实验支持界面过程的重要性？
 
@@ -483,9 +522,6 @@ Hubble 在本节脚注中也指出一个例外：**大尺寸电池以较高倍�
 
 ## 8 区分实验现象与机理解释
 
-**表 5**　实验现象、机理解释与适用条件。
-{: .textbook-caption}
-
 <div class="textbook-table" markdown="1">
 
 | 说法 | 证据地位 | 阅读时需要保留的限定 |
@@ -500,6 +536,10 @@ Hubble 在本节脚注中也指出一个例外：**大尺寸电池以较高倍�
 | 较高电导率一定产生更大低温放电容量 | **不能成立** | 界面反应、固相扩散、析晶和电池结构仍有影响 |
 
 </div>
+
+**表 5**　实验现象、机理解释与适用条件。
+{: .textbook-caption}
+
 ---
 
 ## 9 回到 Hubble 第 552 页：按作者的行文顺序复述
@@ -520,21 +560,23 @@ Hubble 在本节脚注中也指出一个例外：**大尺寸电池以较高倍�
 
 ---
 
-## 10 理解检查：三个问题
+## 10 检查理解
 
-**问题 1｜介电常数与黏度**
+<div class="textbook-check" markdown="1">
+
+#### 问题 1　介电常数与黏度
 
 在相同温度及 LiPF₆ 浓度下，逐渐增加 EC/EMC 中的 EC 比例。为什么电导率可能先升高、之后下降？请分别考虑锂盐解离和离子运动。
 
-**问题 2｜降温与扩散**
+#### 问题 2　降温与扩散
 
 把电解液从 \\(25\ ^\circ\mathrm C\\) 降至 \\(-20\ ^\circ\mathrm C\\)，并假定没有结晶，盐的配制浓度不变。为什么电导率仍可能下降？Stokes–Einstein 关系能解释什么、有哪些局限？
 
-**问题 3｜怎样判断实验结论？**
+#### 问题 3　怎样判断实验结论？
 
 在 \\(-20\ ^\circ\mathrm C\\) 测得 A 电解液的电导率为 \\(6\ \mathrm{mS\,cm^{-1}}\\)，B 为 \\(4\ \mathrm{mS\,cm^{-1}}\\)，但 B 电池具有更高的放电容量。你能提出哪些合理原因？还需要哪些测试，才能判断是否是去溶剂化过程在主导？
 
----
+</div>
 
 ## 11 参考文献与进一步阅读
 
@@ -561,5 +603,3 @@ Hubble 在本节脚注中也指出一个例外：**大尺寸电池以较高倍�
 <a id="ref-6"></a>
 
 [6] **Li, Q. et al. (2017).** *Li⁺-Desolvation Dictating Lithium-Ion Battery's Low-Temperature Performances*. **ACS Applied Materials & Interfaces**, 9, 42761–42768. DOI：[10.1021/acsami.7b13887](https://doi.org/10.1021/acsami.7b13887)。**用途**：理解溶剂化和界面去溶剂化为什么可能决定低温放电表现。
-
----
