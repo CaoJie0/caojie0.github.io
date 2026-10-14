@@ -24,7 +24,8 @@
 
 <!-- end custom head snippets -->
 {% if page.layout == 'textbook' %}
-<link rel="stylesheet" href="{{ '/assets/css/textbook.css' | relative_url }}">
-<script src="{{ '/assets/js/textbook-math.js' | relative_url }}"></script>
-<script defer src="{{ '/assets/js/textbook-navigation.js' | relative_url }}"></script>
+{% assign textbook_asset_version = site.time | date: '%Y%m%d%H%M%S' %}
+<link rel="stylesheet" href="{{ '/assets/css/textbook.css' | relative_url }}?v={{ textbook_asset_version }}">
+<script src="{{ '/assets/js/textbook-math.js' | relative_url }}?v={{ textbook_asset_version }}"></script>
+<script defer src="{{ '/assets/js/textbook-navigation.js' | relative_url }}?v={{ textbook_asset_version }}"></script>
 {% endif %}

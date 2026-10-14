@@ -3,6 +3,7 @@
   const previous = window.MathJax || {};
   const tex = previous.tex || {};
   const loader = previous.loader || {};
+  const startup = previous.startup || {};
   window.MathJax = {
     ...previous,
     loader: {
@@ -18,6 +19,27 @@
             '[+]': [...new Set([...(tex.packages?.['[+]'] || []), 'mhchem'])]
           },
       tags: 'ams'
+    },
+    startup: {
+      ...startup,
+      pageReady() {
+        const ready = startup.pageReady
+          ? startup.pageReady()
+          : window.MathJax.startup.defaultPageReady();
+        return Promise.resolve(ready).then(() => {
+          // Formula rendering changes layout before a chapter link can settle.
+          let anchor;
+          try {
+            anchor = decodeURIComponent(window.location.hash.slice(1));
+          } catch {
+            return;
+          }
+          const target = document.getElementById(anchor);
+          if (target?.closest('.textbook-content')) {
+            target.scrollIntoView({ block: 'start' });
+          }
+        });
+      }
     }
   };
 })();
