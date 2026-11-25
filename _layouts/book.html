@@ -2,7 +2,7 @@
 layout: single
 ---
 
-{% if page.cover or page.book_author or page.finished_on or page.status %}
+{% if page.cover or page.book_author or page.finished_on or page.finished_month or page.status %}
   <div class="book-detail__intro">
     {% if page.cover %}
       {% assign cover_url = page.cover %}
@@ -13,8 +13,13 @@ layout: single
       {% if page.book_author %}<p>作者：{{ page.book_author }}</p>{% endif %}
       {% if page.publisher %}<p>出版社：{{ page.publisher }}{% if page.published_year %}（{{ page.published_year }}）{% endif %}</p>{% endif %}
       {% if page.isbn %}<p>ISBN：{{ page.isbn }}</p>{% endif %}
-      {% if page.finished_on %}<p>完成阅读：<time datetime="{{ page.finished_on | date: '%Y-%m-%d' }}">{{ page.finished_on | date: "%Y年%-m月%-d日" }}</time></p>{% endif %}
-      {% unless page.finished_on %}{% if page.status %}<p class="book-detail__status">阅读状态：{{ page.status }}</p>{% endif %}{% endunless %}
+      {% if page.finished_on %}
+        <p>读完于 <time datetime="{{ page.finished_on | date: '%Y-%m-%d' }}">{{ page.finished_on | date: "%Y年%-m月%-d日" }}</time></p>
+      {% elsif page.finished_month %}
+        <p>读完于 <time datetime="{{ page.finished_month }}">{{ page.finished_month | append: "-01" | date: "%Y年%-m月" }}</time></p>
+      {% elsif page.status %}
+        <p class="book-detail__status">阅读状态：{{ page.status }}</p>
+      {% endif %}
       {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
     </div>
   </div>

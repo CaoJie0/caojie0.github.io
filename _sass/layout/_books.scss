@@ -1,5 +1,25 @@
 /* Book list and reading-note pages */
 
+@include breakpoint($x-large) {
+  body:has(.book-list) {
+    #main,
+    .masthead__inner-wrap,
+    .page__footer footer {
+      position: relative;
+      // Recenter within the full viewport when the native scrollbar takes space.
+      // Cap the shift to the available side margin near the desktop breakpoint.
+      left: clamp(0px, calc((100vw - 100%) / 2), calc((100% - #{$x-large}) / 2));
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .book-list {
+    /* Keep the last card clear of the fixed desktop footer at the scroll limit. */
+    padding-bottom: 7rem;
+  }
+}
+
 .book-list__empty {
   color: var(--global-text-color-light);
 }

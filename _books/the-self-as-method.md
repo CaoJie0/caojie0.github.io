@@ -2,7 +2,8 @@
 title: "把自己作为方法"
 book_author: "项飙、吴琦"
 reading_year: 2026
-status: "阅读中"
+finished_month: "2026-11"
+status: "已读完"
 cover: "/images/books/the-self-as-method-2020.jpg"
 summary: "项飙与吴琦的对话，围绕个人经验、社会变迁与人类学研究方法展开。"
 ---
@@ -13,6 +14,4 @@ summary: "项飙与吴琦的对话，围绕个人经验、社会变迁与人类�
 
 ## 我的阅读笔记
 
-*正在阅读，个人思考待补充。*
-
-书目信息参考：[豆瓣图书](https://book.douban.com/subject/35092383/) · [Google 图书](https://books.google.com/books?id=Dcqi0QEACAAJ)。封面来源：[Goodreads](https://www.goodreads.com/book/show/54825593)。
+*个人思考待补充。*
