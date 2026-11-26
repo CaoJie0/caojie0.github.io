@@ -7,7 +7,12 @@ redirect_from:
   - /teaching/
 ---
 
-{% assign reading_dates = site.books | group_by_exp: "book", "book.finished_on | date: '%Y-%m-%d' | default: book.finished_month | default: book.reading_year | default: '0000' | append: ''" | sort: "name" | reverse %}
+{% assign in_progress_books = site.books | where: "status", "阅读中" %}
+{% assign other_books = site.books | where_exp: "book", "book.status != '阅读中'" %}
+{% assign current_reading_year = site.time | date: "%Y" %}
+{% assign in_progress_years = in_progress_books | group_by_exp: "book", "book.reading_year | default: current_reading_year | append: '-reading'" %}
+{% assign reading_dates = other_books | group_by_exp: "book", "book.finished_on | date: '%Y-%m-%d' | default: book.finished_month | default: book.reading_year | default: '0000' | append: ''" %}
+{% assign reading_dates = reading_dates | concat: in_progress_years | sort: "name" | reverse %}
 
 {% if reading_dates.size == 0 %}
   <p class="book-list__empty">读书记录正在整理中。</p>
